@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(253, 254, 195);
+    margin: 0;
+}
+
+.container {
+    width: 220px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 30px;
+    margin: 15px auto;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 35px;
+}
+
+input {
+    font-size: medium;
+}
+
+.center {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    display: inline;
+    padding: 0 5px 10px 5px;
+}
+
+p.custom-percentage {
+    text-align: center;
+    margin: 16px 0 25px 0;
+}
+
+p.submit {
+    margin: 25px 0 16px 0;
+}
+
+.output {
+    display: none;
+    margin: 40px 0 0 0;
+    padding: 0 15px;
+    border: 1px solid black;
+    color: blue;
+}
