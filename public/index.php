@@ -1,6 +1,3 @@
-<?php require('Form.php'); ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +19,7 @@
             and (int)$_POST['custom-percentage'] > 0;
       }
     ?>
-  <?php require('calc.php'); ?>
+<?php require('calc.php'); ?>
 
   </head>
   <body>

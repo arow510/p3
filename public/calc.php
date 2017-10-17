@@ -1,6 +1,5 @@
 
-<?php require('Form.php'); ?>
-<?php require('helpers.php'); ?>
+
 
 <style type="text/css">
 
