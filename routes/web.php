@@ -11,3 +11,6 @@
 |
 */Route::post('/', 'CalcuController@index');
     return view('welcome');
+
+  Route::post('/submit', 'CalcuController@index');
+        return view('welcome');
