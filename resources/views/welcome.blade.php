@@ -83,7 +83,7 @@
 
   <div class="output">
       <p>Tip: $<?php
-          $subtotal = (int)$_POST('subtotal');
+          $subtotal = (int)$_POST['subtotal'];
           $percentage = round(15 / 100, 2);
           if (hasValidPercentage()) {
             $percentage = round((int)$_POST['percentage'] / 100, 2);

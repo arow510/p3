@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 
 class CalcuController extends Controller
 {
-  public function ___index()
+  public function index()
 {
 
 
   return view('welcome');
+}
+
+public function call()
+{
+
+
+return view('calcu');
+}
+
 }
