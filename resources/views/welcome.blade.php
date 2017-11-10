@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,17 +20,21 @@
             and (int)$_POST['custom-percentage'] > 0;
       }
     ?>
-<?php require('calc.php'); ?>
+
 
   </head>
   <body>
+
+
   <div class="container">
     <h1 class="center">Tip Calculator</h1>
-    <form method="post" action="">
+
+    <form method="get" action="" >
+
       <p class="subtotal">Bill subtotal:$<input class="subtotal" type="text"  name="subtotal" size="10"
           <?php
-            if (isset($_POST['subtotal'])) {
-              print 'value="' . $_POST ['subtotal'] . '"';
+            if (isset($_GET['subtotal'])) {
+              print 'value="' . $_GET ['subtotal'] . '"';
             }
           ?>
         /></p>
@@ -38,8 +43,8 @@
         <ul>
           <?php
             $checkedValue = $defaultPercentage;
-            if (!empty($_POST['percentage'])) {
-              $checkedValue = (int)$_POST['percentage'];
+            if (!empty($_GET['percentage'])) {
+              $checkedValue = (int)$_GET['percentage'];
             }
             foreach (PERCENTAGES as $value) {
               print '<li><input type="radio" name="percentage" value="' . $value . '"';
@@ -53,20 +58,20 @@
         <p class="custom-percentage">
           <input type="checkbox" name="percentage" <?php
             print 'value="CUSTOM_PERCENTAGE"';
-            if (!empty($_POST['percentage']) and htmlspecialchars($_POST['percentage']) == CUSTOM_PERCENTAGE) {
+            if (!empty($_GET['percentage']) and htmlspecialchars($_GET['percentage']) == CUSTOM_PERCENTAGE) {
               print ' checked="checked"';
             }
           ?>
           />Custom: <input type="text" name="custom-percentage" size="10"<?php
-            if (!empty($_POST['custom-percentage'])) {
-              print ' value="' . $_POST['custom-percentage'] . '"';
+            if (!empty($_GET['custom-percentage'])) {
+              print ' value="' . $_GET['custom-percentage'] . '"';
             }
           ?>
           />%</p>
       </div>
       <p class="split">Split: <input class="split" type="text" name="split" size="10" <?php
-          if (isset($_POST['split'])) {
-            print ' value="' . $_POST['split'] . '"';
+          if (isset($_GET['split'])) {
+            print ' value="' . $_GET['split'] . '"';
           } else {
             print ' value="1"';
           }
@@ -80,39 +85,5 @@
 
 
 
-
-  <div class="output">
-      <p>Tip: $<?php
-          $subtotal = (int)$_POST['subtotal'];
-          $percentage = round(15 / 100, 2);
-          if (hasValidPercentage()) {
-            $percentage = round((int)$_POST['percentage'] / 100, 2);
-          } else { // custom percentage
-            $percentage = round((int)$_POST['custom-percentage'] / 100, 2);
-          }
-          $tip = round($subtotal * $percentage, 2);
-          print $tip ."->".number_format($tip);
-        ?>
-      </p>
-      <p>Total: $<?php
-          $total = round($subtotal + $tip, 2);
-          print  $total ."->".number_format($total);
-        ?>
-      </p>
-      <div class="split-output">
-        <p>Tip each: $<?php
-            $split = (int)$_POST['split'];
-            $tipEach = round($tip / $split, 2);
-            print  $tipEach ."->".number_format($tipEach);
-          ?>
-        </p>
-        <p>Total each: $<?php
-            $totalEach = round($total / $split, 2);
-            print  $totalEach ."->".number_format($totalEach);
-          ?>
-        </p>
-      </div>
-    </div>
-    </div>
   </body>
 </html>

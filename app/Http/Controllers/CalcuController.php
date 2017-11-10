@@ -13,7 +13,7 @@ class CalcuController extends Controller
   return view('welcome');
 }
 
-public function call()
+public function calculation()
 {
 
 
